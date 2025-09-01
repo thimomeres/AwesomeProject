@@ -19,7 +19,7 @@ const App = () => {
       </View>
 
       <View style={styles.container1}>
-        <Text style={styles.title}>Berhenti</Text>
+        <Text style={styles.title}>Stop/Berhenti</Text>
       </View>
 
       <View>
@@ -114,5 +114,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 10,
     right: 90,
+    borderRadius: 100,
+    borderBlockColor: 'black',
+    borderStyle: 'solid',
+    borderWidth: 2,
   },
 });
