@@ -13,7 +13,7 @@ const App = () => {
         <Text style={styles.title}>Basic React Native</Text>
         {/* cara mengambil gambar dari file lokal */}
         <Image
-          source={require('./assset/reactimage.png')}
+          source={require('./asset/reactimage.png')}
           style={styles.image}
         />
       </View>

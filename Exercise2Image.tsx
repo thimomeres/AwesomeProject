@@ -18,17 +18,15 @@ const Exercise2Image = () => {
           </View>
           {/* logcal Gambar*/}
           <Image
-            style={styles.photo1}
-            source={require('./assset/Gambarjvs.png')}
+            source={require('./asset/biofoto.jpeg')}
+            style={styles.avatar}
           />
+
           <Text style={styles.text_p}>
             {'  '}
             Selamat datang di Exercise hallo 2 React Navite Disini kami belajar
             tentang Image bagaimana menambahkan image dari 3 sumber yang berbeda
             yaitu :{'\n'}
-            <Text style={{fontWeight: 'bold'}}>1.file</Text> {'\n'}
-            <Text style={{fontWeight: 'bold'}}>2.url</Text> {'\n'}
-            <Text style={{fontWeight: 'bold'}}>3.Base64</Text> {'\n'}
           </Text>
           {/* URL Gambar*/}
           <Image
@@ -54,6 +52,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f7e15348', // warna kuning
     // ...style lain...
+  },
+  avatar: {
+    width: 300,
+    height: 200,
+    marginTop: 50,
+    marginLeft: 20,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
   },
   title: {
     fontSize: 40,

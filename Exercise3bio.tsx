@@ -18,10 +18,7 @@ const Exercise3bio = () => {
         <View>
           <Text style={styles.p1}> Welcome To my Bio Data</Text>
         </View>
-        <Image
-          style={styles.photo1}
-          source={require('./assset/biofoto.jpeg')}
-        />
+        <Image style={styles.photo1} source={require('./asset/biofoto.jpeg')} />
         <View style={styles.containerText}>
           <Text style={styles.p2}> Name : Timo</Text>
           <Text style={styles.p2}> Age : 20</Text>
