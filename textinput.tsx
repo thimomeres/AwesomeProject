@@ -1,85 +1,100 @@
 // import semua library yang dibutuhkan
-import React from 'react';
-import {
-  StyleSheet, // untuk styling komponen // input teks (username, password)
-  View, // container untuk mengelompokkan elemen
-  Text, // menampilkan teks
-  Pressable, // tombol yang bisa ditekan (punya efek pressed)
-  Image,
-  // menampilkan gambar/logo
-} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, View, Text, Pressable, Image} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 import TextInputExample from './components/TextInput';
 import Button from './components/Button';
 import Title from './components/Titlelogin/Title';
-// SafeAreaProvider & SafeAreaView digunakan supaya konten tidak ketutup notch/status bar
 
 // Komponen utama LoginScreen
 const textinput = () => {
-  // state untuk menyimpan username & password yang diketik user
-  const [username, setUsername] = React.useState(''); // state username
-  const [password, setPassword] = React.useState(''); // state password
+  // state
+  const [title, setTitle] = useState('Selamat Datang ');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  // fungsi yang dijalankan saat tombol Sign In ditekan
-  const texinput = () => {
-    console.log({username, password}); // log data ke console
+  // handler tombol
+  const onSignIn = () => {
+    setTitle(`Selamat Datang ${username}`); // pakai backtick `
+    console.log('Klik SignIn', {username, password});
   };
 
   // tampilan UI (return JSX)
   return (
     <SafeAreaProvider>
-      {/* Provider safe area untuk seluruh layar */}
       <SafeAreaView style={styles.safeArea}>
-        {/* Container utama layar dengan style safeArea */}
-        <Title>Admin Login</Title>
-        {/* Judul besar di atas layar */}
+        <View style={styles.boxlogo}>
+          <Text style={styles.title}>{title}</Text>
+        </View>
 
         <View style={styles.containerLogo}>
-          {/* Container untuk logo */}
           <Image
             style={styles.logologin}
-            source={require('./asset/loginlg.png')} // gambar logo dari folder asset
+            source={require('./asset/loginlg.png')}
           />
         </View>
 
         <View style={styles.form}>
-          {/* Panggil Untuk yang sudah di buat di compponents */}
           <TextInputExample
             placeholder="Masukan Username anda"
             label="Username"
+            value={username}
+            onChangeText={setUsername}
           />
           <TextInputExample
-            placeholder="Masukan Pasworad anda"
+            placeholder="Masukan Password anda"
             label="Password"
             secureTextEntry={true}
+            value={password}
+            onChangeText={setPassword}
           />
           <TextInputExample
             placeholder="Masukan No Telp anda"
             label="Nomor Telphone"
           />
-          <Button label="Sign In" color="#ea8500ff" />
-          <Button label="GOOGLE" color="#ea0400ff" />
-          <Button label="FACEBOOK" color="#0669cbff" />
-          <Button label="APPLE" color="#000000ff" />
+
+          <Button label="Sign In" color="#ea8500ff" onPress={onSignIn} />
+          <Button
+            label="Sign In GOOGLE"
+            color="#ea0400ff"
+            onPress={() => console.log('Google')}
+          />
+          <Button
+            label="Sign In FACEBOOK"
+            color="#0669cbff"
+            onPress={() => console.log('Facebook')}
+          />
+          <Button
+            label="Sign In APPLE"
+            color="#000000ff"
+            onPress={() => console.log('Apple')}
+          />
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
   );
 };
 
-export default textinput; // export supaya bisa dipakai di App.tsx
+export default textinput;
 
 const styles = StyleSheet.create({
   safeArea: {
-    flex: 1, // supaya mengisi seluruh layar
+    flex: 1,
     backgroundColor: '#d0e2dcff',
     paddingHorizontal: 20,
     paddingTop: 10,
+    textAlign: 'center',
+  },
+  boxlogo: {
+    backgroundColor: '#e4ebb4ff',
+    borderRadius: 102,
+    padding: 2,
+    marginTop: 10,
   },
   title: {
-    fontSize: 34,
+    fontSize: 25,
     fontWeight: '800',
-    color: '#e4d66bff',
+    color: '#232009ff',
     marginBottom: 20,
     textAlign: 'center',
   },
@@ -103,7 +118,6 @@ const styles = StyleSheet.create({
     color: '#333',
     marginBottom: 8,
   },
-
   logologin: {
     width: 120,
     height: 120,
