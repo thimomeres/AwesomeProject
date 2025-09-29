@@ -66,5 +66,6 @@ const styles = StyleSheet.create({
     color: '#333',
     marginBottom: 9,
     fontWeight: '600',
+    elevation: 12,
   },
 });

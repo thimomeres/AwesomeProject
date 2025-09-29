@@ -10,6 +10,8 @@ import textinput from './textinput';
 import Register from './Register';
 // jadi ini yang di tambhakan setiap mau buat filenya kelihatan di emolatorynya
 import {name as appName} from './app.json';
+import FlexBox from './FlexBox';
+import Exercise7Flex from './Exercise7Flex';
 
-AppRegistry.registerComponent(appName, () => Register);
+AppRegistry.registerComponent(appName, () => Exercise7Flex);
 // ganti appp dengan nama file yang mau di jalankan
